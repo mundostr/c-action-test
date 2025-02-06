@@ -1,0 +1,7 @@
+name: "Workflow #1"
+on: [push]
+jobs:
+    system-init:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "SYSTEM STARTED"
