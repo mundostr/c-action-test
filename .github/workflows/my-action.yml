@@ -5,3 +5,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - run: echo "SYSTEM STARTED"
+    
+    system-config:
+        runs-on: ubuntu-latest
+        needs: [system-init]
+        steps:
+            - uses: actions/checkout@v4
+            - name: Install dependencies # Alternative syntax with name
+              run: sudo apt install -y build-essential
+            - run: pwd # Just to see some output of the current dir
+            - run: gcc -o app app.c
+            - run: ./app
